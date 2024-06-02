@@ -11,20 +11,24 @@ This repository contains the source code for a news application built with Flutt
 
 ## News Application Screenshots
 <p align="center">
-    <img src="https://github.com/official-shashi/News-App/blob/main/screenshot/HomeScreen.jpg" alt="Home Screen" width="200"/>
-    <img src="https://github.com/official-shashi/News-App/blob/main/screenshot/SplashScreen.jpg" alt="News Channel Screen" width="200"/>
-    <img src="https://github.com/official-shashi/News-App/blob/main/screenshot/SearchScreen.jpg" alt="Category Screen" width="200"/>
-    <img src="https://github.com/official-shashi/News-App/blob/main/screenshot/DetailsScreen.jpg" alt="Full Screen" width="200"/>
+    <img src="https://github.com/official-shashi/News-Application/blob/main/screenshot/HomeScreen.png" alt="Home Screen" width="200"/>
+    <img src="https://github.com/official-shashi/News-Application/blob/main/screenshot/NewsChannel.png" alt="News Channel Screen" width="200"/>
+    <img src="https://github.com/official-shashi/News-Application/blob/main/screenshot/CategoryList.png" alt="Category Screen" width="200"/>
+    <img src="https://github.com/official-shashi/News-Application/blob/main/screenshot/FullScreen.png" alt="Full Screen" width="200"/>
 </p>
 
 ## Learning Resources
 
 This project was developed following tutorials from the YouTube channel **The Tech Brothers**, hosted by **Aasif Taj**. You can find more useful Flutter tutorials on their channel.
 
+## API Reference
+
+This application uses the Pexels API. For more details, visit [News API](newsapi.org).
+
 ## Links
 
-- **Application Link**: [Application Link](application link)
-- **Repository Link**: [Repository Link](repo link)
+- **Application Link**: [Application Link](https://github.com/official-shashi/News-Application/blob/main/screenshot/NewsApplication.apk)
+- **Repository Link**: [Repository Link](https://github.com/official-shashi/News-Application)
 
 ## How to Use
 
