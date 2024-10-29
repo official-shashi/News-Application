@@ -35,7 +35,7 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.white,
-         foregroundColor: Colors.black,
+          foregroundColor: Colors.black,
           elevation: 0,
         ),
         body: Stack(
@@ -52,9 +52,12 @@ class _NewsDetailsScreenState extends State<NewsDetailsScreen> {
                       placeholder: (context, url) => Container(
                             child: spinKit2,
                           ),
-                      errorWidget: (context, url, error) => const Icon(
-                            Icons.error_outline,
-                            color: Colors.red,
+                      errorWidget: (context, url, error) => Center(
+                            child: const Icon(
+                              Icons.error_outline,
+                              color: Colors.red,
+                              size: 50,
+                            ),
                           ))),
             ),
             Container(

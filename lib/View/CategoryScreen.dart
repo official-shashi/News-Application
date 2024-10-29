@@ -61,9 +61,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       child: Container(
                         decoration: BoxDecoration(
                             color: categoryName == categoryList[index]
-                                ? Colors.blue
+                                ? Colors.orange
                                 : Colors.grey,
-                            borderRadius: BorderRadius.circular(20)),
+                            borderRadius: BorderRadius.circular(10)),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 12),
                           child: Center(
@@ -90,7 +90,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       return const Center(
                         child: SpinKitCircle(
                           size: 40,
-                          color: Colors.blue,
+                          color: Colors.orange,
                         ),
                       );
                     } else {
@@ -142,10 +142,15 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                         child: spinKit2,
                                       ),
                                       errorWidget: (context, url, error) =>
-                                          const Icon(
-                                        Icons.error_outline,
-                                        color: Colors.red,
-                                      ),
+                                          Container(
+                                            height: height * .18,
+                                            width: width * .3,
+                                            color: Colors.grey.shade200,
+                                            child: Icon(
+                                              Icons.error_outline,
+                                              color: Colors.red,
+                                            ),
+                                          ),
                                     ),
                                   ),
                                   Expanded(
@@ -168,14 +173,16 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Text(
-                                              snapshot.data!.articles![index]
-                                                  .source!.name
-                                                  .toString(),
-                                              overflow: TextOverflow.ellipsis,
-                                              style: GoogleFonts.poppins(
-                                                  fontSize: 12,
-                                                  fontWeight: FontWeight.w500),
+                                            Flexible(
+                                              child: Text(
+                                                snapshot.data!.articles![index]
+                                                    .source!.name
+                                                    .toString(),
+                                                overflow: TextOverflow.ellipsis,
+                                                style: GoogleFonts.poppins(
+                                                    fontSize: 12,
+                                                    fontWeight: FontWeight.w500),
+                                              ),
                                             ),
                                             Text(
                                               format.format(dateTime),

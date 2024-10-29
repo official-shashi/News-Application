@@ -23,6 +23,10 @@ class NewsRepository{
     final response = await http.get(Uri.parse(url));
     if(response.statusCode == 200){
       final body = jsonDecode(response.body);
+      final filteredArticles = (body['articles'] as List)
+          .where((article) => article['title'] != "[Removed]")
+          .toList();
+      body['articles'] = filteredArticles;
       return CategoriesNewsModel.fromJson(body);
     }
     throw Exception("error");
