@@ -1,4 +1,8 @@
+
+import 'dart:async';
+
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -6,8 +10,12 @@ import 'package:intl/intl.dart';
 import 'package:news_application/Models/CategoriesNewsModel.dart';
 import 'package:news_application/Models/NewsChannelHeadlinesModel.dart';
 import 'package:news_application/View/NewsDetailsScreen.dart';
+import 'package:news_application/View/NoInternetScreen.dart';
 import 'package:news_application/View_Model/NewsViewModel.dart';
 import 'package:news_application/View/CategoryScreen.dart';
+
+import '../Utils/network_utils.dart';
+
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -24,11 +32,33 @@ class _HomeScreenState extends State<HomeScreen> {
   FilterList? selectMenu;
   String name = 'the-times-of-india';
 
+List<ConnectivityResult> connectionStatus = [];
+  final Connectivity _connectivity = Connectivity();
+
+  @override
+  void initState() {
+    super.initState();
+    NetworkUtils.checkInternetConnectivity().then((result) {
+      setState(() {
+        connectionStatus = result;
+      });
+    });
+    _connectivity.onConnectivityChanged.listen((result) {
+      setState(() {
+        connectionStatus = result;
+      });
+    });
+  }
+
+
+  
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height * 1;
     final width = MediaQuery.sizeOf(context).width * 1;
-
+ if (connectionStatus.isNotEmpty && connectionStatus[0] == ConnectivityResult.none) {
+      return NoInternetScreen();
+    } else {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -400,6 +430,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
+    }
   }
 }
 
